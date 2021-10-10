@@ -12,28 +12,40 @@ class Background extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Stack(
-      alignment: Alignment.center,
-      fit: StackFit.expand,
-      children: [
-        Positioned(
-          left: -size.width * 0.5,
-          top: -size.width * 0.45,
-          child: SvgPicture.asset(
-            "assets/images/Splash Bg.svg",
-            width: 400,
-          ),
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Color(0xFF3C414B),
+            Color(0xFF0B0C0E),
+          ],
         ),
-        Positioned(
-          right: -size.width * 0.5,
-          bottom: -size.width * 0.45,
-          child: SvgPicture.asset(
-            "assets/images/Splash Bg.svg",
-            width: 400,
+      ),
+      child: Stack(
+        alignment: Alignment.center,
+        fit: StackFit.expand,
+        children: [
+          Positioned(
+            left: -size.width * 0.5,
+            top: -size.width * 0.45,
+            child: SvgPicture.asset(
+              "assets/icons/Splash Bg.svg",
+              width: 400,
+            ),
           ),
-        ),
-        child,
-      ],
+          Positioned(
+            right: -size.width * 0.5,
+            bottom: -size.width * 0.45,
+            child: SvgPicture.asset(
+              "assets/icons/Splash Bg.svg",
+              width: 400,
+            ),
+          ),
+          child,
+        ],
+      ),
     );
   }
 }
