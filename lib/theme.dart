@@ -13,18 +13,15 @@ ThemeData theme() {
 
 InputDecorationTheme inputDecorationTheme() {
   return InputDecorationTheme(
-    floatingLabelBehavior: FloatingLabelBehavior.always,
     labelStyle: TextStyle(color: kTextColor),
-    contentPadding: EdgeInsets.fromLTRB(42, 15, 5, 15),
-    enabledBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: kTextColor),
-      borderRadius: BorderRadius.circular(30),
-      gapPadding: 8,
+    contentPadding: EdgeInsets.symmetric(
+      horizontal: 0,
     ),
-    focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: kTextColor),
-      borderRadius: BorderRadius.circular(30),
-      gapPadding: 8,
+    enabledBorder: UnderlineInputBorder(
+      borderSide: BorderSide(color: Color(0xFFDED9D9)),
+    ),
+    focusedBorder: UnderlineInputBorder(
+      borderSide: BorderSide(color: kBrandPrimaryColor),
     ),
   );
 }

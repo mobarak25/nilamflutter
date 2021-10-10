@@ -1,37 +1,55 @@
 import 'package:flutter/material.dart';
-import 'package:nilam/constants.dart';
+import 'package:nilam/screen/login/components/login_banner.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      height: size.height,
-      width: double.infinity,
-      color: kPrimaryColor,
-      child: Stack(
-        alignment: Alignment.center,
-        clipBehavior: Clip.none,
+    return SingleChildScrollView(
+      child: Column(
         children: [
-          Positioned(
-            top: 0,
-            left: 0,
-            child: Container(
-              width: double.infinity,
-              height: 200,
-              color: Colors.amber,
-              child: Text("data"),
-            ),
+          LoginBanner(
+            login: true,
           ),
-          Positioned(
-            top: 190,
-            child: Container(
-              width: double.infinity,
-              height: 200,
-              color: Colors.black,
-              child: Text("data"),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Form(
+              child: Column(
+                children: [
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: "Email or Phone",
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: "Password",
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: false,
+                        onChanged: (bool? value) {},
+                      ),
+                      Text("Remember Me"),
+                      Spacer(),
+                      GestureDetector(
+                        child: Text(
+                          "Forgot Password ?",
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ],
