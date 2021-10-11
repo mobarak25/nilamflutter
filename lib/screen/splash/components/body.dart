@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nilam/components/default_button.dart';
-import 'package:nilam/screen/login/login_screen.dart';
+import 'package:nilam/screen/sign_up/sign_up_screen.dart';
 
 import 'background.dart';
 
@@ -23,7 +23,7 @@ class Body extends StatelessWidget {
             child: DefaultButton(
               text: 'Continue',
               press: () {
-                Navigator.pushNamed(context, LoginScreen.routeName);
+                Navigator.pushNamed(context, SignUpScreen.routeName);
               },
             ),
           ),

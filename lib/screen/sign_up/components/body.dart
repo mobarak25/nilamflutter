@@ -3,8 +3,8 @@ import 'package:nilam/components/already_have_an_account.dart';
 import 'package:nilam/components/or_divider.dart';
 import 'package:nilam/components/social_login_cart.dart';
 import 'package:nilam/screen/login/components/login_banner.dart';
-import 'package:nilam/screen/login/components/login_form.dart';
-import 'package:nilam/screen/sign_up/sign_up_screen.dart';
+import 'package:nilam/screen/login/login_screen.dart';
+import 'package:nilam/screen/sign_up/components/sign_up_form.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -15,11 +15,12 @@ class Body extends StatelessWidget {
       child: Column(
         children: [
           LoginBanner(
-            login: true,
+            login: false,
           ),
-          LoginForm(),
-          SizedBox(height: 30),
+          SignUpForm(),
+          SizedBox(height: 10),
           OrDivider(),
+          SizedBox(height: 10),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Row(
@@ -41,9 +42,9 @@ class Body extends StatelessWidget {
             ),
           ),
           AlreadyHaveAnAccount(
-            login: true,
+            login: false,
             press: () {
-              Navigator.pushNamed(context, SignUpScreen.routeName);
+              Navigator.pushNamed(context, LoginScreen.routeName);
             },
           )
         ],
