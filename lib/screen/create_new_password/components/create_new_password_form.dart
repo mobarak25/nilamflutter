@@ -23,7 +23,8 @@ class _CreateNewPasswordFormState extends State<CreateNewPasswordForm> {
             Text(
               "OTP",
               style: TextStyle(
-                fontSize: kWidth(context) * 0.05,
+                color: Colors.white,
+                fontSize: kWidth(context) * 0.04,
               ),
             ),
             SizedBox(height: 8),
@@ -32,7 +33,8 @@ class _CreateNewPasswordFormState extends State<CreateNewPasswordForm> {
             Text(
               "Create Password",
               style: TextStyle(
-                fontSize: kWidth(context) * 0.05,
+                color: Colors.white,
+                fontSize: kWidth(context) * 0.04,
               ),
             ),
             SizedBox(height: 8),
@@ -44,7 +46,8 @@ class _CreateNewPasswordFormState extends State<CreateNewPasswordForm> {
             Text(
               "Confirm Password",
               style: TextStyle(
-                fontSize: kWidth(context) * 0.05,
+                color: Colors.white,
+                fontSize: kWidth(context) * 0.04,
               ),
             ),
             SizedBox(height: 8),
@@ -52,7 +55,7 @@ class _CreateNewPasswordFormState extends State<CreateNewPasswordForm> {
               obscureText: true,
               decoration: buldDecoration(visibility: false),
             ),
-            SizedBox(height: kHeight(context) * 0.1),
+            SizedBox(height: kHeight(context) * 0.09),
             DefaultButton(
               press: () {},
               text: 'Reset password',
@@ -65,13 +68,16 @@ class _CreateNewPasswordFormState extends State<CreateNewPasswordForm> {
                   "Didn't receive the code? ",
                   textAlign: TextAlign.center,
                   style: TextStyle(
+                    color: Colors.white,
                     fontSize: kWidth(context) * 0.04,
                   ),
                 ),
                 Text(
-                  "Resend",
+                  " Resend",
                   textAlign: TextAlign.center,
                   style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
                     fontSize: kWidth(context) * 0.04,
                   ),
                 ),

@@ -22,7 +22,8 @@ class Body extends StatelessWidget {
             Text(
               "Create new password",
               style: TextStyle(
-                fontSize: kWidth(context) * 0.058,
+                color: Colors.white,
+                fontSize: kWidth(context) * 0.07,
                 fontFamily: "Poppins",
                 fontWeight: FontWeight.w600,
               ),
@@ -30,6 +31,7 @@ class Body extends StatelessWidget {
             Text(
               "Code is sent to phone  to reset your password.",
               style: TextStyle(
+                color: Colors.white,
                 fontSize: kWidth(context) * 0.035,
               ),
             ),
