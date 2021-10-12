@@ -22,7 +22,7 @@ class SocialLoginCart extends StatelessWidget {
       onTap: press,
       child: Container(
         height: 50,
-        width: size.width * 0.44,
+        width: size.width * 0.42,
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.only(

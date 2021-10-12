@@ -18,7 +18,7 @@ class Body extends StatelessWidget {
             login: true,
           ),
           LoginForm(),
-          SizedBox(height: 30),
+          SizedBox(height: 20),
           OrDivider(),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20),

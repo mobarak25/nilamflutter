@@ -41,16 +41,15 @@ class _SignUpFormState extends State<SignUpForm> {
                 ),
               ],
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 20),
             TextFormField(
               decoration: InputDecoration(
                 labelText: "Email or Phone",
               ),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 20),
             TextFormField(
               obscureText: true,
-              keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 labelText: "Password",
               ),
@@ -78,7 +77,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 ),
               ],
             ),
-            SizedBox(height: 40),
+            SizedBox(height: 20),
             DefaultButton(text: "Sign In", press: () {}),
           ],
         ),
