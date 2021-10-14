@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nilam/components/home_bottom_navigation.dart';
 import 'package:nilam/constants.dart';
 import 'package:nilam/screen/home/components/body.dart';
 
@@ -11,6 +12,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: buldAppBar(),
       body: Body(),
+      bottomNavigationBar: HomeBottomNavogation(),
     );
   }
 
@@ -23,7 +25,7 @@ class HomeScreen extends StatelessWidget {
         color: Colors.white,
       ),
       title: Container(
-        width: 130,
+        width: 110,
         child: Image.asset("assets/images/logo.png"),
       ),
       centerTitle: true,

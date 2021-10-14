@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nilam/constants.dart';
 import 'package:nilam/models/HomeCategory.dart';
+import 'package:nilam/screen/home/components/home_category_card.dart';
+import 'package:nilam/screen/home/components/home_slider_section.dart';
 import 'home_top_section.dart';
 
 class Body extends StatelessWidget {
@@ -8,62 +9,52 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        HomeTopSection(),
-        SizedBox(height: 15),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Padding(
-            padding: EdgeInsets.only(left: 20),
-            child: Row(
-              children: [
-                ...List.generate(
-                  demoHomeCategory.length,
-                  (index) => HomeCaregoryCard(
-                    category: demoHomeCategory[index],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        SizedBox(height: 30),
-      ],
-    );
-  }
-}
-
-class HomeCaregoryCard extends StatelessWidget {
-  final HomeCategory category;
-  const HomeCaregoryCard({
-    Key? key,
-    required this.category,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(right: 15),
+    return SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(
-            width: 40,
-            height: 40,
-            child: Image.asset(
-              category.images,
-              fit: BoxFit.cover,
+          HomeTopSection(),
+          SizedBox(height: 15),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Padding(
+              padding: EdgeInsets.only(left: 20),
+              child: Row(
+                children: [
+                  ...List.generate(
+                    demoHomeCategory.length,
+                    (index) => HomeCaregoryCard(
+                      category: demoHomeCategory[index],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-          SizedBox(height: 5),
-          Text(
-            category.title,
-            maxLines: 1,
-            style: TextStyle(
-              fontSize: 14,
-              color: kPrimaryColor,
-            ),
-          )
+          SizedBox(height: 15),
+          HomeSliderSection(),
+
+          // CarouselSlider(
+          //   options: CarouselOptions(
+          //     height: 200.0,
+          //     autoPlay: true,
+          //     viewportFraction: 1,
+          //   ),
+          //   items: [1, 2, 3, 4, 5].map((i) {
+          //     return Builder(
+          //       builder: (BuildContext context) {
+          //         return Container(
+          //           width: MediaQuery.of(context).size.width,
+          //           margin: EdgeInsets.symmetric(horizontal: 1),
+          //           decoration: BoxDecoration(color: Colors.amber),
+          //           child: Text(
+          //             'text $i',
+          //             style: TextStyle(fontSize: 16.0),
+          //           ),
+          //         );
+          //       },
+          //     );
+          //   }).toList(),
+          // ),
         ],
       ),
     );
