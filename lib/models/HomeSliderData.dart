@@ -19,7 +19,7 @@ class HomeSlider {
 List<HomeSlider> demoHomeSlider = [
   HomeSlider(
     id: 1,
-    title: "CURREN Sport Watches for Men Black",
+    title: "CURREN Sport Watches\n for Men Black",
     images: "assets/images/home_slider.png",
     biddingStatus: "Bidding is running out",
     bidPrice: 1200,
@@ -27,8 +27,8 @@ List<HomeSlider> demoHomeSlider = [
     btnText: "Make your bid 1",
   ),
   HomeSlider(
-    id: 1,
-    title: "CURREN Sport Watches for Men Black",
+    id: 2,
+    title: "CURREN Sport Watches\n for Men Black",
     images: "assets/images/home_slider.png",
     biddingStatus: "Bidding is running out",
     bidPrice: 1200,
@@ -36,12 +36,21 @@ List<HomeSlider> demoHomeSlider = [
     btnText: "Make your bid 2",
   ),
   HomeSlider(
-    id: 1,
-    title: "CURREN Sport Watches for Men Black",
+    id: 3,
+    title: "CURREN Sport Watches\n for Men Black",
     images: "assets/images/home_slider.png",
     biddingStatus: "Bidding is running out",
     bidPrice: 1200,
     time: "3d 7h 45m",
-    btnText: "Make your bid",
+    btnText: "Make your bid 3",
+  ),
+  HomeSlider(
+    id: 4,
+    title: "CURREN Sport Watches\n for Men Black",
+    images: "assets/images/home_slider.png",
+    biddingStatus: "Bidding is running out",
+    bidPrice: 1200,
+    time: "3d 7h 45m",
+    btnText: "Make your bid 4",
   ),
 ];
