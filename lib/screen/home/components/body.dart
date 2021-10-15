@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nilam/components/section_title.dart';
 import 'package:nilam/models/HomeCategory.dart';
 import 'package:nilam/screen/home/components/home_category_card.dart';
 import 'package:nilam/screen/home/components/home_slider_section.dart';
@@ -32,29 +33,11 @@ class Body extends StatelessWidget {
           ),
           SizedBox(height: 15),
           HomeSliderSection(),
-
-          // CarouselSlider(
-          //   options: CarouselOptions(
-          //     height: 200.0,
-          //     autoPlay: true,
-          //     viewportFraction: 1,
-          //   ),
-          //   items: [1, 2, 3, 4, 5].map((i) {
-          //     return Builder(
-          //       builder: (BuildContext context) {
-          //         return Container(
-          //           width: MediaQuery.of(context).size.width,
-          //           margin: EdgeInsets.symmetric(horizontal: 1),
-          //           decoration: BoxDecoration(color: Colors.amber),
-          //           child: Text(
-          //             'text $i',
-          //             style: TextStyle(fontSize: 16.0),
-          //           ),
-          //         );
-          //       },
-          //     );
-          //   }).toList(),
-          // ),
+          SizedBox(height: 20),
+          SectionTitle(
+            text: "Featured Auctions",
+            press: () {},
+          ),
         ],
       ),
     );

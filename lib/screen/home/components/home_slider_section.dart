@@ -125,8 +125,9 @@ class _HomeSliderSectionState extends State<HomeSliderSection> {
                           padding:
                               EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                           decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.5),
-                              borderRadius: BorderRadius.circular(20)),
+                            color: Colors.white.withOpacity(0.5),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
                           child: Text(
                             demoHomeSlider[itemIndex].btnText,
                             style: TextStyle(
