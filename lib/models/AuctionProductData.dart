@@ -1,36 +1,43 @@
 import 'package:flutter/material.dart';
 
-class Product {
+class AuctionProduct {
   final int id;
-  final String title, description;
+  final String category, title, condition, stockType, time, description;
+  final int qty;
   final List<String> images;
   final List<Color> colors;
-  final double rating, price;
+  final double rating, startingBid, lastbid;
   final bool isFavourite, isPopular;
 
-  Product({
+  AuctionProduct({
     required this.id,
+    required this.category,
+    required this.qty,
+    required this.title,
+    this.condition = "New",
+    this.stockType = "Single",
+    required this.time,
     required this.images,
     required this.colors,
     this.rating = 0.0,
     this.isFavourite = false,
     this.isPopular = false,
-    required this.title,
-    required this.price,
+    required this.startingBid,
+    required this.lastbid,
     required this.description,
   });
 }
 
 // Our demo Products
 
-List<Product> demoProducts = [
-  Product(
+List<AuctionProduct> demoAuctionProduct = [
+  AuctionProduct(
     id: 1,
+    qty: 4,
+    category: "Electronics",
+    time: "1 Dey, 6 Hours Left",
     images: [
-      "assets/images/ps4_console_white_1.png",
-      "assets/images/ps4_console_white_2.png",
-      "assets/images/ps4_console_white_3.png",
-      "assets/images/ps4_console_white_4.png",
+      "assets/images/featured_auction_1.png",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -39,51 +46,40 @@ List<Product> demoProducts = [
       Colors.white,
     ],
     title: "Wireless Controller for PS4™",
-    price: 64.99,
+    startingBid: 2000,
+    lastbid: 20000,
     description: description,
     rating: 4.8,
     isFavourite: true,
     isPopular: true,
   ),
-  Product(
-    id: 2,
-    images: [
-      "assets/images/Image Popular Product 2.png",
-    ],
+  AuctionProduct(
+    id: 1,
+    qty: 4,
+    category: "Electronics",
+    time: "8 Hours Left",
+    images: ["assets/images/featured_auction_2.png"],
     colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Nike Sport White - Man Pant",
-    price: 50.5,
+    title: "Wireless Controller for PS4™",
+    startingBid: 2000,
+    lastbid: 2000,
     description: description,
-    rating: 4.1,
-    isPopular: true,
-  ),
-  Product(
-    id: 3,
-    images: [
-      "assets/images/glap.png",
-    ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Gloves XC Omega - Polygon",
-    price: 36.55,
-    description: description,
-    rating: 4.1,
+    rating: 4.8,
     isFavourite: true,
     isPopular: true,
   ),
-  Product(
-    id: 4,
+  AuctionProduct(
+    id: 1,
+    qty: 4,
+    category: "Electronics",
+    time: "2 Dey, 3 Hours Left",
     images: [
-      "assets/images/wireless headset.png",
+      "assets/images/featured_auction_3.png",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -91,11 +87,13 @@ List<Product> demoProducts = [
       Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Logitech Head",
-    price: 20.20,
+    title: "Wireless Controller for PS4™",
+    startingBid: 10000,
+    lastbid: 11000,
     description: description,
-    rating: 4.1,
+    rating: 4.8,
     isFavourite: true,
+    isPopular: true,
   ),
 ];
 

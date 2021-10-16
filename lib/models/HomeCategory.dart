@@ -42,4 +42,24 @@ List<HomeCategory> demoHomeCategory = [
     title: "Kids",
     images: "assets/images/home_cat_kids.png",
   ),
+  HomeCategory(
+    id: 1,
+    title: "Fashion",
+    images: "assets/images/home_cat_fashion.png",
+  ),
+  HomeCategory(
+    id: 1,
+    title: "Electronics",
+    images: "assets/images/home_cat_electronics.png",
+  ),
+  HomeCategory(
+    id: 1,
+    title: "Sports",
+    images: "assets/images/home_cat_sports.png",
+  ),
+  HomeCategory(
+    id: 1,
+    title: "Kids",
+    images: "assets/images/home_cat_kids.png",
+  ),
 ];
