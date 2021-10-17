@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:nilam/components/section_title.dart';
 import 'package:nilam/models/HomeCategory.dart';
+import 'package:nilam/models/ProductData.dart';
 import 'package:nilam/screen/home/components/featured_auctions.dart';
 import 'package:nilam/screen/home/components/featured_product.dart';
 import 'package:nilam/screen/home/components/home_category_card.dart';
 import 'package:nilam/screen/home/components/home_slider_section.dart';
+import 'package:nilam/screen/home/components/recommanded_product.dart';
 import 'home_top_section.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -56,31 +58,7 @@ class Body extends StatelessWidget {
             press: () {},
           ),
           SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.all(4),
-            child: StaggeredGridView.countBuilder(
-              shrinkWrap: true,
-              physics: ScrollPhysics(),
-              //or use commited 2 lines for scroll
-              // scrollDirection: Axis.vertical,
-              // physics: NeverScrollableScrollPhysics(),
-              crossAxisCount: 4,
-              mainAxisSpacing: 4,
-              crossAxisSpacing: 4,
-              itemCount: 8,
-              itemBuilder: (BuildContext context, int index) => Container(
-                color: Colors.green,
-                child: Center(
-                  child: CircleAvatar(
-                    backgroundColor: Colors.white,
-                    child: Text('$index'),
-                  ),
-                ),
-              ),
-              staggeredTileBuilder: (int index) =>
-                  StaggeredTile.count(2, index.isEven ? 2 : 1.5),
-            ),
-          ),
+          RecommendedProduct(),
         ],
       ),
     );
