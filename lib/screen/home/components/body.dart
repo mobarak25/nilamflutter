@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:nilam/components/section_title.dart';
 import 'package:nilam/models/HomeCategory.dart';
-import 'package:nilam/models/ProductData.dart';
 import 'package:nilam/screen/home/components/featured_auctions.dart';
 import 'package:nilam/screen/home/components/featured_product.dart';
 import 'package:nilam/screen/home/components/home_category_card.dart';
 import 'package:nilam/screen/home/components/home_slider_section.dart';
 import 'package:nilam/screen/home/components/recommanded_product.dart';
 import 'home_top_section.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
