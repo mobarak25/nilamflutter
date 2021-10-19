@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:nilam/components/my_tooltip.dart';
 import 'package:nilam/constants.dart';
 
 class ProductCondition extends StatelessWidget {
-  const ProductCondition({Key? key}) : super(key: key);
+  final String condition, text, tooltipMessage;
+  final Color color;
+  const ProductCondition({
+    Key? key,
+    required this.condition,
+    required this.text,
+    this.color = kGreenColor,
+    this.tooltipMessage = "",
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +22,12 @@ class ProductCondition extends StatelessWidget {
           children: [
             Container(
               padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-              decoration: BoxDecoration(color: kGreenColor.withOpacity(0.22), borderRadius: BorderRadius.circular(5)),
+              decoration: BoxDecoration(
+                color: color.withOpacity(0.22),
+                borderRadius: BorderRadius.circular(5),
+              ),
               child: Text(
-                "New",
+                condition,
                 style: TextStyle(
                   fontSize: 12,
                   color: kGreenColor,
@@ -28,7 +40,7 @@ class ProductCondition extends StatelessWidget {
             Text(
               "20pcs Lot",
               style: TextStyle(
-                fontSize: 11,
+                fontSize: 12,
                 fontFamily: "Poppins",
                 fontWeight: FontWeight.w500,
               ),
@@ -38,11 +50,19 @@ class ProductCondition extends StatelessWidget {
         Row(
           children: [
             Text(
-              "Home delivery Available",
+              text,
               style: TextStyle(
-                fontSize: 11,
+                fontSize: 12,
                 fontFamily: "Poppins",
                 fontWeight: FontWeight.w500,
+              ),
+            ),
+            MyTooltip(
+              message: tooltipMessage,
+              child: Icon(
+                Icons.error_outline,
+                size: 20,
+                color: kTextColor,
               ),
             ),
           ],
