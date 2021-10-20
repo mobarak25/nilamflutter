@@ -16,7 +16,7 @@ class Body extends StatelessWidget {
         children: [
           ProductImages(),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: kWidth(context) * 0.05),
+            padding: EdgeInsets.symmetric(horizontal: kWidth(context) * 0.04),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -46,7 +46,10 @@ class Body extends StatelessWidget {
                     children: [
                       TextSpan(
                         text: "tk 500",
-                        style: TextStyle(color: kGreenColor, fontWeight: FontWeight.bold, fontSize: kWidth(context) * 0.06),
+                        style: TextStyle(
+                            color: kGreenColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: kWidth(context) * 0.06),
                       ),
                       TextSpan(
                         text: " + tk65 shipping",
@@ -97,8 +100,15 @@ class Body extends StatelessWidget {
                   color: kBorderColor,
                 ),
                 SizedBox(height: 15),
-                ExpandExample(),
-                SizedBox(height: 300),
+                SizedBox(height: 15),
+                MyHomePage(),
+                SizedBox(height: 15),
+                Divider(
+                  height: 2,
+                  thickness: 1.5,
+                  color: kBorderColor,
+                ),
+                SizedBox(height: 15),
               ],
             ),
           ),
@@ -108,111 +118,70 @@ class Body extends StatelessWidget {
   }
 }
 
-class ExpandExample extends StatefulWidget {
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
   @override
-  _ExpandExampleState createState() => _ExpandExampleState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _ExpandExampleState extends State<ExpandExample> {
-  ///If the box is expanded
-  bool _isExpanded = false;
-
-  ///Toogle the box to expand or collapse
-  void _toogleExpand() {
-    setState(() {
-      _isExpanded = !_isExpanded;
-    });
-  }
+class _MyHomePageState extends State<MyHomePage> {
+  bool isReadmore = false;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 200.0,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            child: GestureDetector(
-              onTap: _toogleExpand,
-              child: Container(
-                padding: EdgeInsets.all(25.0),
-                width: double.infinity,
-                child: Text('Click me to ' + (_isExpanded ? 'collapse' : 'expand')),
+    return Column(
+      children: [
+        Text(
+          "An item that has been restored to working order by the eBay seller or a third party not approved by the manufacturer. This means the item has been inspected, cleaned, and repaired to full working order and is in excellent condition. This item may or may not be in original packaging specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of",
+          style: TextStyle(fontSize: 14),
+          maxLines: isReadmore ? null : 4,
+          // overflow properties is used to show 3 dot in text widget
+          // so that user can understand there are few more line to read.
+          overflow: isReadmore ? TextOverflow.visible : TextOverflow.ellipsis,
+        ),
+        Container(
+          height: isReadmore ? null : 0,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.asset("assets/images/bedroom.png"),
+              SizedBox(height: 5),
+              Text("Bedroom"),
+              SizedBox(height: 10),
+              Image.asset("assets/images/living_room.png"),
+              SizedBox(height: 5),
+              Text("living room"),
+            ],
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 4),
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    // toggle the bool variable true or false
+                    isReadmore = !isReadmore;
+                  });
+                },
+                child: Text(
+                  (isReadmore ? 'CLOSE DESCRIPTION' : 'FULL DESCRIPTION'),
+                  textAlign: TextAlign.right,
+                  style: TextStyle(
+                    height: 2,
+                    fontSize: 14,
+                    color: kGreenColor,
+                    fontFamily: "Poppins",
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
               ),
             ),
-          ),
-          ExpandedSection(
-            expand: _isExpanded,
-            child: Container(
-              width: double.infinity,
-              color: Colors.red,
-              padding: EdgeInsets.all(25.0),
-              child: Text('Hello there'),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class ExpandedSection extends StatefulWidget {
-  final Widget child;
-  final bool expand;
-  ExpandedSection({
-    this.expand = false,
-    required this.child,
-  });
-
-  @override
-  _ExpandedSectionState createState() => _ExpandedSectionState();
-}
-
-class _ExpandedSectionState extends State<ExpandedSection> with SingleTickerProviderStateMixin {
-  late AnimationController expandController;
-  late Animation<double> animation;
-
-  @override
-  void initState() {
-    super.initState();
-    prepareAnimations();
-  }
-
-  ///Setting up the animation
-  void prepareAnimations() {
-    expandController = AnimationController(vsync: this, duration: Duration(milliseconds: 500));
-    Animation<double> curve = CurvedAnimation(
-      parent: expandController,
-      curve: Curves.fastOutSlowIn,
-    );
-    animation = Tween(begin: 0.0, end: 1.0).animate(curve)
-      ..addListener(() {
-        setState(() {});
-      });
-  }
-
-  @override
-  void didUpdateWidget(ExpandedSection oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (widget.expand) {
-      expandController.forward();
-    } else {
-      expandController.reverse();
-    }
-  }
-
-  @override
-  void dispose() {
-    expandController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return SizeTransition(
-      axisAlignment: 1.0,
-      sizeFactor: animation,
-      child: widget.child,
+          ],
+        ),
+      ],
     );
   }
 }
