@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:nilam/components/my_breadcrumb.dart';
+import 'package:nilam/components/section_title.dart';
 import 'package:nilam/constants.dart';
+import 'package:nilam/screen/product_details/components/description.dart';
 import 'package:nilam/screen/product_details/components/details_item.dart';
 import 'package:nilam/screen/product_details/components/product_condition.dart';
+import 'package:nilam/screen/product_details/components/product_faq.dart';
 import 'package:nilam/screen/product_details/components/product_images.dart';
+import 'package:nilam/screen/product_details/components/product_reviews.dart';
+import 'package:nilam/screen/product_details/components/shipping_returns_payment.dart';
 import 'package:nilam/size_healper.dart';
 
 class Body extends StatelessWidget {
@@ -46,10 +51,7 @@ class Body extends StatelessWidget {
                     children: [
                       TextSpan(
                         text: "tk 500",
-                        style: TextStyle(
-                            color: kGreenColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: kWidth(context) * 0.06),
+                        style: TextStyle(color: kGreenColor, fontWeight: FontWeight.bold, fontSize: kWidth(context) * 0.06),
                       ),
                       TextSpan(
                         text: " + tk65 shipping",
@@ -94,94 +96,97 @@ class Body extends StatelessWidget {
                 DetailsItem(title: "Color:", value: "Blue & Pink"),
                 DetailsItem(title: "Uses:", value: "Living Room, Office Room"),
                 SizedBox(height: 15),
-                Divider(
-                  height: 2,
-                  thickness: 1.5,
-                  color: kBorderColor,
-                ),
+                Divider(height: 2, thickness: 1.5, color: kBorderColor),
                 SizedBox(height: 15),
                 SizedBox(height: 15),
-                MyHomePage(),
+                Description(),
                 SizedBox(height: 15),
-                Divider(
-                  height: 2,
-                  thickness: 1.5,
-                  color: kBorderColor,
-                ),
+                Divider(height: 2, thickness: 1.5, color: kBorderColor),
+                SizedBox(height: 15),
+                ShippingReturnsPayment(),
+                SizedBox(height: 15),
+                Divider(height: 2, thickness: 1.5, color: kBorderColor),
+                SizedBox(height: 15),
+                ProductReviews(),
+                SizedBox(height: 15),
+                ProductFaq(),
                 SizedBox(height: 15),
               ],
             ),
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  bool isReadmore = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          "An item that has been restored to working order by the eBay seller or a third party not approved by the manufacturer. This means the item has been inspected, cleaned, and repaired to full working order and is in excellent condition. This item may or may not be in original packaging specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of",
-          style: TextStyle(fontSize: 14),
-          maxLines: isReadmore ? null : 4,
-          // overflow properties is used to show 3 dot in text widget
-          // so that user can understand there are few more line to read.
-          overflow: isReadmore ? TextOverflow.visible : TextOverflow.ellipsis,
-        ),
-        Container(
-          height: isReadmore ? null : 0,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Image.asset("assets/images/bedroom.png"),
-              SizedBox(height: 5),
-              Text("Bedroom"),
-              SizedBox(height: 10),
-              Image.asset("assets/images/living_room.png"),
-              SizedBox(height: 5),
-              Text("living room"),
-            ],
+          SectionTitle(
+            text: "Similar Products",
+            press: () {},
           ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 4),
-              child: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    // toggle the bool variable true or false
-                    isReadmore = !isReadmore;
-                  });
-                },
-                child: Text(
-                  (isReadmore ? 'CLOSE DESCRIPTION' : 'FULL DESCRIPTION'),
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                    height: 2,
-                    fontSize: 14,
-                    color: kGreenColor,
-                    fontFamily: "Poppins",
-                    fontWeight: FontWeight.w500,
-                  ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: kWidth(context) * 0.04),
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(color: kBorderColor),
+                  right: BorderSide(color: kBorderColor),
                 ),
               ),
+              child: Wrap(
+                children: [
+                  FractionallySizedBox(
+                    widthFactor: 0.5,
+                    child: Container(
+                      padding: EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(color: kBorderColor),
+                          left: BorderSide(color: kBorderColor),
+                        ),
+                      ),
+                      child: Image.asset("assets/images/s_product.png"),
+                    ),
+                  ),
+                  FractionallySizedBox(
+                    widthFactor: 0.5,
+                    child: Container(
+                      padding: EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(color: kBorderColor),
+                          left: BorderSide(color: kBorderColor),
+                        ),
+                      ),
+                      child: Image.asset("assets/images/s_product.png"),
+                    ),
+                  ),
+                  FractionallySizedBox(
+                    widthFactor: 0.5,
+                    child: Container(
+                      padding: EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(color: kBorderColor),
+                          left: BorderSide(color: kBorderColor),
+                        ),
+                      ),
+                      child: Image.asset("assets/images/s_product.png"),
+                    ),
+                  ),
+                  FractionallySizedBox(
+                    widthFactor: 0.5,
+                    child: Container(
+                      padding: EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(color: kBorderColor),
+                          left: BorderSide(color: kBorderColor),
+                        ),
+                      ),
+                      child: Image.asset("assets/images/s_product.png"),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ],
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }

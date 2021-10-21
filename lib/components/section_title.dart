@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:nilam/constants.dart';
+import 'package:nilam/size_healper.dart';
 
 class SectionTitle extends StatelessWidget {
   final String text;
@@ -14,7 +15,7 @@ class SectionTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: kWidth(context) * 0.04),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
