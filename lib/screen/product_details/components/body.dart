@@ -8,7 +8,9 @@ import 'package:nilam/screen/product_details/components/product_condition.dart';
 import 'package:nilam/screen/product_details/components/product_faq.dart';
 import 'package:nilam/screen/product_details/components/product_images.dart';
 import 'package:nilam/screen/product_details/components/product_reviews.dart';
+import 'package:nilam/screen/product_details/components/progress_bar.dart';
 import 'package:nilam/screen/product_details/components/shipping_returns_payment.dart';
+import 'package:nilam/screen/product_details/components/similar_product.dart';
 import 'package:nilam/size_healper.dart';
 
 class Body extends StatelessWidget {
@@ -118,73 +120,11 @@ class Body extends StatelessWidget {
             text: "Similar Products",
             press: () {},
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: kWidth(context) * 0.04),
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border(
-                  top: BorderSide(color: kBorderColor),
-                  right: BorderSide(color: kBorderColor),
-                ),
-              ),
-              child: Wrap(
-                children: [
-                  FractionallySizedBox(
-                    widthFactor: 0.5,
-                    child: Container(
-                      padding: EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(color: kBorderColor),
-                          left: BorderSide(color: kBorderColor),
-                        ),
-                      ),
-                      child: Image.asset("assets/images/s_product.png"),
-                    ),
-                  ),
-                  FractionallySizedBox(
-                    widthFactor: 0.5,
-                    child: Container(
-                      padding: EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(color: kBorderColor),
-                          left: BorderSide(color: kBorderColor),
-                        ),
-                      ),
-                      child: Image.asset("assets/images/s_product.png"),
-                    ),
-                  ),
-                  FractionallySizedBox(
-                    widthFactor: 0.5,
-                    child: Container(
-                      padding: EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(color: kBorderColor),
-                          left: BorderSide(color: kBorderColor),
-                        ),
-                      ),
-                      child: Image.asset("assets/images/s_product.png"),
-                    ),
-                  ),
-                  FractionallySizedBox(
-                    widthFactor: 0.5,
-                    child: Container(
-                      padding: EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(color: kBorderColor),
-                          left: BorderSide(color: kBorderColor),
-                        ),
-                      ),
-                      child: Image.asset("assets/images/s_product.png"),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          SizedBox(height: 15),
+          SimilarProduct(),
+          SizedBox(height: 30),
+          ProgressBar(),
+          SizedBox(height: 30),
         ],
       ),
     );

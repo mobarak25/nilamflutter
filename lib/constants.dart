@@ -12,7 +12,10 @@ const kGreenColor = Color(0xFF0ABB87);
 const kPrimaryGradientColor = LinearGradient(
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,
-  colors: [Color(0xFFFFA53E), Color(0xFFFF7643)],
+  colors: [
+    Color(0xFFFFA53E),
+    Color(0xFFFF7643),
+  ],
 );
 
 const kAnimationDuration = Duration(milliseconds: 200);
