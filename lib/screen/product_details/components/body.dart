@@ -8,7 +8,9 @@ import 'package:nilam/screen/product_details/components/product_condition.dart';
 import 'package:nilam/screen/product_details/components/product_faq.dart';
 import 'package:nilam/screen/product_details/components/product_images.dart';
 import 'package:nilam/screen/product_details/components/product_reviews.dart';
+import 'package:nilam/screen/product_details/components/progress_bar.dart';
 import 'package:nilam/screen/product_details/components/shipping_returns_payment.dart';
+import 'package:nilam/screen/product_details/components/similar_product.dart';
 import 'package:nilam/size_healper.dart';
 
 class Body extends StatelessWidget {
@@ -121,116 +123,13 @@ class Body extends StatelessWidget {
             text: "Similar Products",
             press: () {},
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: kWidth(context) * 0.04),
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border(
-                  top: BorderSide(color: kBorderColor),
-                  right: BorderSide(color: kBorderColor),
-                ),
-              ),
-              child: Wrap(
-                children: [
-                  FractionallySizedBox(
-                    widthFactor: 0.5,
-                    child: Container(
-                      padding: EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(color: kBorderColor),
-                          left: BorderSide(color: kBorderColor),
-                        ),
-                      ),
-                      child: Image.asset("assets/images/s_product.png"),
-                    ),
-                  ),
-                  FractionallySizedBox(
-                    widthFactor: 0.5,
-                    child: Container(
-                      padding: EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(color: kBorderColor),
-                          left: BorderSide(color: kBorderColor),
-                        ),
-                      ),
-                      child: Image.asset("assets/images/s_product.png"),
-                    ),
-                  ),
-                  FractionallySizedBox(
-                    widthFactor: 0.5,
-                    child: Container(
-                      padding: EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(color: kBorderColor),
-                          left: BorderSide(color: kBorderColor),
-                        ),
-                      ),
-                      child: Image.asset("assets/images/s_product.png"),
-                    ),
-                  ),
-                  FractionallySizedBox(
-                    widthFactor: 0.5,
-                    child: Container(
-                      padding: EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(color: kBorderColor),
-                          left: BorderSide(color: kBorderColor),
-                        ),
-                      ),
-                      child: Image.asset("assets/images/s_product.png"),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          MyStatefulWidget(),
-          SizedBox(height: 150),
+          SizedBox(height: 15),
+          SimilarProduct(),
+          SizedBox(height: 30),
+          ProgressBar(),
+          SizedBox(height: 30),
         ],
       ),
-    );
-  }
-}
-
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
-
-  @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
-}
-
-/// This is the private State class that goes with MyStatefulWidget.
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  String dropdownValue = 'One';
-  List items = ['One', 'Two', 'Free', 'Four'];
-
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
-      iconSize: 24,
-      elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
-      underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
-      ),
-      onChanged: (String? newValue) {
-        setState(() {
-          dropdownValue = newValue!;
-        });
-      },
-      items: items.map<DropdownMenuItem<String>>((value) {
-        return DropdownMenuItem(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
     );
   }
 }
