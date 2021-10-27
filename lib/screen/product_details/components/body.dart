@@ -51,7 +51,10 @@ class Body extends StatelessWidget {
                     children: [
                       TextSpan(
                         text: "tk 500",
-                        style: TextStyle(color: kGreenColor, fontWeight: FontWeight.bold, fontSize: kWidth(context) * 0.06),
+                        style: TextStyle(
+                            color: kGreenColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: kWidth(context) * 0.06),
                       ),
                       TextSpan(
                         text: " + tk65 shipping",
@@ -185,8 +188,49 @@ class Body extends StatelessWidget {
               ),
             ),
           ),
+          MyStatefulWidget(),
+          SizedBox(height: 150),
         ],
       ),
+    );
+  }
+}
+
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({Key? key}) : super(key: key);
+
+  @override
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+}
+
+/// This is the private State class that goes with MyStatefulWidget.
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  String dropdownValue = 'One';
+  List items = ['One', 'Two', 'Free', 'Four'];
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      value: dropdownValue,
+      icon: const Icon(Icons.arrow_downward),
+      iconSize: 24,
+      elevation: 16,
+      style: const TextStyle(color: Colors.deepPurple),
+      underline: Container(
+        height: 2,
+        color: Colors.deepPurpleAccent,
+      ),
+      onChanged: (String? newValue) {
+        setState(() {
+          dropdownValue = newValue!;
+        });
+      },
+      items: items.map<DropdownMenuItem<String>>((value) {
+        return DropdownMenuItem(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
     );
   }
 }
