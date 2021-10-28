@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nilam/constants.dart';
+import 'package:nilam/screen/post_your_add/post_your_ad_screen.dart';
 
 class HomeBottomNavogation extends StatelessWidget {
   const HomeBottomNavogation({
@@ -21,8 +22,7 @@ class HomeBottomNavogation extends StatelessWidget {
                       height: 12,
                     ),
                     Container(
-                      padding: EdgeInsets.only(
-                          left: 20, right: 20, top: 8, bottom: 7),
+                      padding: EdgeInsets.only(left: 20, right: 20, top: 8, bottom: 7),
                       color: kPrimaryColor,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -140,17 +140,22 @@ class HomeBottomNavogation extends StatelessWidget {
                 Align(
                   // left: (kWidth(context) * 0.5) - 60,
                   alignment: Alignment.topCenter,
-                  child: Container(
-                    width: 62,
-                    height: 62,
-                    decoration: BoxDecoration(
-                      color: Color(0XFF404551),
-                      shape: BoxShape.circle,
-                    ),
-                    child: Icon(
-                      Icons.add,
-                      size: 38,
-                      color: kBrandPrimaryColor,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, PostYourAddScreen.routeName);
+                    },
+                    child: Container(
+                      width: 62,
+                      height: 62,
+                      decoration: BoxDecoration(
+                        color: Color(0XFF404551),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        Icons.add,
+                        size: 38,
+                        color: kBrandPrimaryColor,
+                      ),
                     ),
                   ),
                 ),
