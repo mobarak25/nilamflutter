@@ -53,7 +53,10 @@ class Body extends StatelessWidget {
                     children: [
                       TextSpan(
                         text: "tk 500",
-                        style: TextStyle(color: kGreenColor, fontWeight: FontWeight.bold, fontSize: kWidth(context) * 0.06),
+                        style: TextStyle(
+                            color: kGreenColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: kWidth(context) * 0.06),
                       ),
                       TextSpan(
                         text: " + tk65 shipping",
