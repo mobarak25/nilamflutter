@@ -22,12 +22,11 @@ class PostYourAddScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.more_vert, size: 25),
+            icon: Icon(Icons.more_vert),
             onPressed: () {},
           ),
         ],
       ),
-      body: Container(),
     );
   }
 }
