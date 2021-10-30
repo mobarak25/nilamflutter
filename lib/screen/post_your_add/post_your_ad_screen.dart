@@ -27,6 +27,52 @@ class PostYourAddScreen extends StatelessWidget {
           ),
         ],
       ),
+      body: Multilabel(),
+    );
+  }
+}
+
+class Multilabel extends StatelessWidget {
+  const Multilabel({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          child: ExpansionTile(
+            title: Text("Mobarak Ali"),
+            children: [
+              ListTile(
+                title: Text("Mobarak Ali 1"),
+              ),
+              ListTile(
+                title: ExpansionTile(
+                  title: Text("Mobarak Ali 2"),
+                  children: [
+                    ListTile(
+                      title: ExpansionTile(
+                        title: Text("Mobarak Ali 2.1"),
+                        children: [
+                          ListTile(
+                            title: Text("Mobarak Ali 21.1"),
+                          ),
+                          ListTile(
+                            title: Text("Mobarak Ali 21.2"),
+                          ),
+                          ListTile(
+                            title: Text("Mobarak Ali 21.3"),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
