@@ -72,34 +72,28 @@ class RadioExpand extends StatelessWidget {
       },
     ];
 
-    return Column(
-      children: [
-        ...List.generate(
-          categories.length,
-          (parentIndex) {
-            if (categories[parentIndex]["children"].length > 0) {
-              return ExpansionPanelList.radio(
-                children: [
-                  ExpansionPanelRadio(
-                    canTapOnHeader: true,
-                    value: categories[parentIndex],
-                    headerBuilder: (context, bool isExpanded) => Text(categories[parentIndex]["name"]),
-                    body: Column(
-                      children: [
-                        Text("data"),
-                      ],
-                    ),
-                  ),
-                ],
-              );
-            } else {
-              return Text(
-                categories[parentIndex]["name"],
-              );
-            }
-          },
-        ),
-      ],
+    return SingleChildScrollView(
+      child: ExpansionPanelList.radio(
+        children: categories
+            .map(
+              (cat) => ExpansionPanelRadio(
+                value: cat["name"],
+                headerBuilder: (BuildContext context, bool isExpanded) {
+                  return ListTile(
+                    title: Text(cat["name"]),
+                  );
+                },
+                body: Column(
+                  children: [
+                    ListTile(
+                      title: Text(cat["name"]),
+                    )
+                  ],
+                ),
+              ),
+            )
+            .toList(),
+      ),
     );
   }
 }
