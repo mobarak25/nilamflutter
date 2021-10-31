@@ -1,90 +1,105 @@
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  // selected's value = 0. For default first item is open.
-  int selected = 0; //attention
+class RadioExpand extends StatelessWidget {
+  const RadioExpand({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text('ExpansionTile Collapse',
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-        ),
-        body: Container(
-            color: Colors.white,
-            child: SingleChildScrollView(
-              child: Column(children: [
-                ListView.builder(
-                  padding: EdgeInsets.only(
-                    left: 13.0,
-                    right: 13.0,
-                    bottom: 25.0,
-                  ),
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemCount: 5,
-                  itemBuilder: (context, index) {
-                    return Column(children: <Widget>[
-                      Divider(
-                        height: 17.0,
-                        color: Colors.white,
-                      ),
-                      ExpansionTile(
-                          //attention
-                          initiallyExpanded: index == selected, //attention
-
-                          leading: Icon(
-                            Icons.person,
-                            size: 50.0,
-                            color: Colors.black,
-                          ),
-                          title: Text('Faruk AYDIN ${index}',
-                              style: TextStyle(
-                                  color: Color(0xFF09216B),
-                                  fontSize: 17.0,
-                                  fontWeight: FontWeight.bold)),
-                          subtitle: Text(
-                            'Software Engineer',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 13.0,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          children: <Widget>[
-                            Padding(
-                                padding: EdgeInsets.all(25.0),
-                                child: Text(
-                                  'DETAİL ${index} \n' +
-                                      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using "Content here, content here", making it look like readable English.',
-                                ))
-                          ],
-                          onExpansionChanged: ((newState) {
-                            if (newState)
-                              setState(() {
-                                Duration(seconds: 20000);
-                                selected = index;
-                              });
-                            else
-                              setState(() {
-                                selected = -1;
-                              });
-                          })),
-                    ]);
+    List<Map<String, dynamic>> categories = [
+      {
+        "name": "hasChild 1",
+        "children": [
+          {
+            "name": "Ali 2a",
+            "children": [
+              {
+                "name": "Ali 3",
+                "children": [
+                  {
+                    "name": "Ali 4",
+                    "children": [],
                   },
-                )
-              ]),
-            )));
+                ],
+              },
+            ],
+          },
+          {
+            "name": "Ali 2b",
+            "children": [],
+          },
+          {
+            "name": "Ali 2c",
+            "children": [],
+          },
+        ],
+      },
+      {
+        "name": "hasChild 2",
+        "children": [
+          {
+            "name": "Ali 2a",
+            "children": [
+              {
+                "name": "Ali 3",
+                "children": [
+                  {
+                    "name": "Ali 4",
+                    "children": [],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            "name": "Ali 2b",
+            "children": [],
+          },
+          {
+            "name": "Ali 2c",
+            "children": [],
+          },
+        ],
+      },
+      {
+        "name": "Other 1",
+        "children": [],
+      },
+      {
+        "name": "Other 2",
+        "children": [],
+      },
+    ];
+
+    return Column(
+      children: [
+        ...List.generate(
+          categories.length,
+          (parentIndex) {
+            if (categories[parentIndex]["children"].length > 0) {
+              return ExpansionPanelList.radio(
+                children: [
+                  ExpansionPanelRadio(
+                    canTapOnHeader: true,
+                    value: categories[parentIndex],
+                    headerBuilder: (context, bool isExpanded) => Text(categories[parentIndex]["name"]),
+                    body: Column(
+                      children: [
+                        Text("data"),
+                      ],
+                    ),
+                  ),
+                ],
+              );
+            } else {
+              return Text(
+                categories[parentIndex]["name"],
+              );
+            }
+          },
+        ),
+      ],
+    );
   }
 }
