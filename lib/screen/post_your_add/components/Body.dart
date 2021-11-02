@@ -1,99 +1,26 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:nilam/screen/post_your_add/components/categories.dart';
+import 'package:nilam/screen/post_your_add/components/post_your_ad_banner.dart';
 
-class RadioExpand extends StatelessWidget {
-  const RadioExpand({
-    Key? key,
-  }) : super(key: key);
+class Body extends StatelessWidget {
+  const Body({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    List<Map<String, dynamic>> categories = [
-      {
-        "name": "hasChild 1",
-        "children": [
-          {
-            "name": "Ali 2a",
-            "children": [
-              {
-                "name": "Ali 3",
-                "children": [
-                  {
-                    "name": "Ali 4",
-                    "children": [],
-                  },
-                ],
-              },
+    return Column(
+      children: [
+        PostYourAdBanner(
+          isAllowance: true,
+        ),
+        SingleChildScrollView(
+          child: Column(
+            children: [
+              Categories(),
             ],
-          },
-          {
-            "name": "Ali 2b",
-            "children": [],
-          },
-          {
-            "name": "Ali 2c",
-            "children": [],
-          },
-        ],
-      },
-      {
-        "name": "hasChild 2",
-        "children": [
-          {
-            "name": "Ali 2a",
-            "children": [
-              {
-                "name": "Ali 3",
-                "children": [
-                  {
-                    "name": "Ali 4",
-                    "children": [],
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            "name": "Ali 2b",
-            "children": [],
-          },
-          {
-            "name": "Ali 2c",
-            "children": [],
-          },
-        ],
-      },
-      {
-        "name": "Other 1",
-        "children": [],
-      },
-      {
-        "name": "Other 2",
-        "children": [],
-      },
-    ];
-
-    return SingleChildScrollView(
-      child: ExpansionPanelList.radio(
-        children: categories
-            .map(
-              (cat) => ExpansionPanelRadio(
-                value: cat["name"],
-                headerBuilder: (BuildContext context, bool isExpanded) {
-                  return ListTile(
-                    title: Text(cat["name"]),
-                  );
-                },
-                body: Column(
-                  children: [
-                    ListTile(
-                      title: Text(cat["name"]),
-                    )
-                  ],
-                ),
-              ),
-            )
-            .toList(),
-      ),
+          ),
+        ),
+      ],
     );
   }
 }
