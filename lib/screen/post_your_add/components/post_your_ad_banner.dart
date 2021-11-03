@@ -79,7 +79,7 @@ class PostYourAdBanner extends StatelessWidget {
           left: 0,
           right: 0,
           child: Container(
-            height: 20,
+            height: 15,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
