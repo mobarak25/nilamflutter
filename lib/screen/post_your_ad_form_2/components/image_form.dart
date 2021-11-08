@@ -18,24 +18,29 @@ class _ImageFormState extends State<ImageForm> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: kWidth(context) * 0.04),
-      child: DottedBorder(
-        color: kBorderColor,
-        dashPattern: [4, 3],
-        padding: EdgeInsets.symmetric(horizontal: 10),
-        child: Form(
-          child: Column(
-            children: [
-              SizedBox(height: 20),
-              ProductImagePicker(),
-              SizedBox(height: 20),
-              DefaultButton(
-                text: 'Next',
-                press: () {},
+      child: Column(
+        children: [
+          DottedBorder(
+            color: kBorderColor,
+            dashPattern: [4, 3],
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: Form(
+              child: Column(
+                children: [
+                  SizedBox(height: 20),
+                  ProductImagePicker(),
+                  SizedBox(height: 20),
+                ],
               ),
-              SizedBox(height: 20),
-            ],
+            ),
           ),
-        ),
+          SizedBox(height: 20),
+          DefaultButton(
+            text: 'Next',
+            press: () {},
+          ),
+          SizedBox(height: 20),
+        ],
       ),
     );
   }
