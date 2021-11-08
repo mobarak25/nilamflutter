@@ -19,13 +19,14 @@ class FeatureAuctionProductCard extends StatelessWidget {
             Column(
               children: [
                 Container(
+                  width: kWidth(context) * 0.276,
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                      color: Color(0xFFFAFAFA),
-                      border: Border.all(
-                        color: kBorderColor.withOpacity(0.5),
-                      )),
-                  width: kWidth(context) * 0.276,
+                    color: Color(0xFFFAFAFA),
+                    border: Border.all(
+                      color: kBorderColor.withOpacity(0.5),
+                    ),
+                  ),
                   child: AspectRatio(
                     aspectRatio: 1.2,
                     child: Image.asset(
@@ -75,9 +76,7 @@ class FeatureAuctionProductCard extends StatelessWidget {
           ],
         )),
         Text(
-          auctionProduct.startingBid < auctionProduct.lastbid
-              ? "Current Bid"
-              : "Start Bid",
+          auctionProduct.startingBid < auctionProduct.lastbid ? "Current Bid" : "Start Bid",
           style: TextStyle(
             fontSize: 12,
           ),

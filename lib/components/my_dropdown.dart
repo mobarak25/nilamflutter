@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:nilam/constants.dart';
+import 'package:nilam/size_healper.dart';
 
 class MyDropdown extends StatefulWidget {
+  final String hintText;
+
+  const MyDropdown({
+    Key? key,
+    required this.hintText,
+  }) : super(key: key);
   @override
   _MyDropdownState createState() => _MyDropdownState();
 }
@@ -12,13 +20,20 @@ class _MyDropdownState extends State<MyDropdown> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 100,
-      child: DropdownButton(
+      width: kWidth(context),
+      child: DropdownButtonFormField(
         isExpanded: true,
         value: dropdownvalue,
+        decoration: InputDecoration(
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: kBorderColor),
+          ),
+        ),
         hint: Text(
-          "Please choose a langauage",
-          style: TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.w500),
+          widget.hintText,
+          style: TextStyle(
+            fontSize: 16,
+          ),
         ),
         icon: Icon(Icons.keyboard_arrow_down),
         items: items.map((String items) {
