@@ -5,7 +5,7 @@ import 'package:nilam/size_healper.dart';
 class MyDropdown extends StatefulWidget {
   final String hintText;
 
-  MyDropdown({
+  const MyDropdown({
     Key? key,
     required this.hintText,
   }) : super(key: key);
@@ -28,12 +28,19 @@ class _MyDropdownState extends State<MyDropdown> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: kWidth(context),
-      child: DropdownButton(
+      child: DropdownButtonFormField(
         isExpanded: true,
         value: dropdownvalue,
+        decoration: InputDecoration(
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: kBorderColor),
+          ),
+        ),
         hint: Text(
           widget.hintText,
-          style: TextStyle(color: kTextColor, fontSize: 15),
+          style: TextStyle(
+            fontSize: 16,
+          ),
         ),
         icon: Icon(Icons.keyboard_arrow_down),
         items: items.map((String items) {
